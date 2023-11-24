@@ -64,11 +64,7 @@ const Skills = () => {
           alt="Framer-Motion"
           className="dark:invert h-10"
         />
-        <SkillBadge
-          src={firebase}
-          alt="Framer-Motion"
-          className="dark:invert h-10"
-        />
+        <SkillBadge src={firebase} alt="Framer-Motion" className=" h-10" />
       </div>
     </section>
   );

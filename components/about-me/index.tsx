@@ -3,11 +3,26 @@
 import { Github, Linkedin, Twitter } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useRef } from "react";
 import { Typewriter } from "react-simple-typewriter";
 import { BlurEffect1, BlurEffect2 } from "../blurEffect";
+import { useScroll, useTransform, motion } from "framer-motion";
 
 const AboutMe = () => {
+  const targetRef = useRef<HTMLDivElement | null>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start start", "end end"],
+  });
+
+  const scale = useTransform(scrollYProgress, [1, 0.8], [0, 1]);
+  const yText = useTransform(
+    scrollYProgress,
+    [0, 200, 300, 500],
+    [0, 50, 50, 300]
+  );
+  // console.log(scale);
   return (
     <section
       id="about-me"
@@ -26,12 +41,14 @@ const AboutMe = () => {
           width="128"
         />
       </div>
-      <div className="space-y-2">
-        <h2 className="text-3xl bg-clip-text text-transparent font-bold text-center md:text-4xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+      <motion.div ref={targetRef} className="space-y-2">
+        <motion.h2
+          style={{ scale }}
+          className="text-3xl bg-clip-text text-transparent font-bold text-center md:text-4xl bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
           Ayinde AbdurRahman
-        </h2>
+        </motion.h2>
 
-        <p className="mx-auto max-w-[700px] text-zinc-500 md:text-lg/relaxed dark:text-zinc-400">
+        <p className="mx-auto max-w-[700px] text-center text-zinc-500 md:text-lg/relaxed dark:text-zinc-400">
           I am a{" "}
           <Typewriter
             words={["Front-End Developer", "Medical Student", "Freelancer"]}
@@ -45,22 +62,27 @@ const AboutMe = () => {
             // onType={handleType}
           />
         </p>
-      </div>
+      </motion.div>
       <div className="flex space-x-4">
         <Link
           className="text-zinc-900 dark:text-zinc-50 hover:text-zinc-900/80 dark:hover:text-zinc-50/80"
-          href="#">
+          href="https://www.linkedin.com/in/abdurrahman-ayinde-b918b5237"
+          target="_blank"
+          prefetch={false}>
           <Linkedin />
         </Link>
         <Link
           aria-label="GitHub"
           className="text-zinc-900 dark:text-zinc-50 hover:text-zinc-900/80 dark:hover:text-zinc-50/80"
-          href="#">
+          href="https://github.com/ayinde-xyz"
+          target="_blank"
+          prefetch={false}>
           <Github />
         </Link>
         <Link
           className="text-zinc-900 dark:text-zinc-50 hover:text-zinc-900/80 dark:hover:text-zinc-50/80"
-          href="#">
+          href="https://twitter.com/ayinde_xyz"
+          target="_blank">
           <Twitter />
         </Link>
       </div>

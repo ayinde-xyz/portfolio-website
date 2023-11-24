@@ -8,6 +8,8 @@ import {
 import Image from "next/image";
 import Link from "next/link";
 import { BlurEffect1, BlurEffect2 } from "../blurEffect";
+import flashNews from "@/public/flash-news.png";
+import chatGPT from "@/public/chatgpt.png";
 
 const Projects = () => {
   return (
@@ -16,7 +18,7 @@ const Projects = () => {
       className="relative min-h-screen snap-center snap-normal py-12 md:py-24 lg:py-32">
       <BlurEffect1 />
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 px-4 md:px-6 lg:gap-10">
-        <Card>
+        <Card className="transition-all duration-200 hover:scale-105 hover:border hover:border-zinc-500 cursor-pointer">
           <CardHeader>
             <CardTitle className="text-center">Flash News</CardTitle>
             <CardDescription>
@@ -29,12 +31,12 @@ const Projects = () => {
               alt="Project 1"
               className="object-cover rounded-md"
               height="200"
-              src="/placeholder.svg"
+              src={flashNews}
               style={{
                 aspectRatio: "200/200",
                 objectFit: "cover",
               }}
-              width="200"
+              width="300"
             />
             <Link
               className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
@@ -43,7 +45,7 @@ const Projects = () => {
             </Link>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="transition-all duration-200 hover:scale-105 hover:border hover:border-zinc-500 cursor-pointer">
           <CardHeader>
             <CardTitle className="text-center">Chat GPT clone</CardTitle>
             <CardDescription>
@@ -55,7 +57,7 @@ const Projects = () => {
               alt="Project 2"
               className="object-cover rounded-md"
               height="200"
-              src="/placeholder.svg"
+              src={chatGPT}
               style={{
                 aspectRatio: "200/200",
                 objectFit: "cover",
@@ -69,7 +71,7 @@ const Projects = () => {
             </Link>
           </CardContent>
         </Card>
-        <Card>
+        <Card className="transition-all duration-200 hover:scale-105 hover:border hover:border-zinc-500 cursor-pointer">
           <CardHeader>
             <CardTitle className="text-center">
               E-commerce online Store
@@ -88,7 +90,7 @@ const Projects = () => {
                 aspectRatio: "200/200",
                 objectFit: "cover",
               }}
-              width="200"
+              width="300"
             />
             <Link
               className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"

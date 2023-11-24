@@ -7,7 +7,7 @@ const IntroPage = () => {
   return (
     <section
       id="intro"
-      className="snap-center relative snap-normal min-h-screen w-full py-12 md:py-24 lg:py-32 xl:py-48">
+      className="snap-center relative top-20 snap-normal min-h-screen w-full py-12 md:py-24 lg:py-32 xl:py-48">
       <BlurEffect1 />
       <div className="container px-4 md:px-6">
         <div className="flex flex-col items-center space-y-4 text-center">

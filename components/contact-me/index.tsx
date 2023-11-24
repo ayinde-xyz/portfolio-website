@@ -15,6 +15,9 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/components/ui/textarea";
 import { BlurEffect1, BlurEffect2 } from "@/components/blurEffect";
+import { useState } from "react";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -32,6 +35,7 @@ const formSchema = z.object({
 });
 
 const ContactMe = () => {
+  const [loading, setLoading] = useState(false);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -42,7 +46,17 @@ const ContactMe = () => {
     },
   });
 
-  const onSubmit = (values: z.infer<typeof formSchema>) => {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    try {
+      setLoading(true);
+      await axios.post("/api/resend", values);
+      toast.success("Message sent successfully");
+    } catch (error) {
+      console.log(error);
+      toast.error("An error occured while sending your message");
+    } finally {
+      setLoading(false);
+    }
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
     console.log(values);
@@ -50,7 +64,7 @@ const ContactMe = () => {
   return (
     <section
       id="contact-me"
-      className="min-h-screen snap-center snap-normal w-full flex flex-col px-10 relative">
+      className="min-h-screen snap-start snap-normal w-full flex flex-col px-10 relative">
       <BlurEffect1 />
       <h1 className="text-center text-xl md:text-4xl">
         Feel free to hit me up
@@ -114,7 +128,7 @@ const ContactMe = () => {
               </FormItem>
             )}
           />
-          <Button type="submit" className="w-full">
+          <Button disabled={loading} type="submit" className="w-full">
             Send Message
           </Button>
         </form>

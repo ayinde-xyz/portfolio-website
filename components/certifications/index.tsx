@@ -41,15 +41,17 @@ const Certifications = () => {
         </Card>
         <Card className="transition-all duration-200  hover:scale-105 hover:border hover:border-zinc-500 cursor-pointer">
           <CardHeader className="p-4">
-            <CardTitle>Responsive Web Design</CardTitle>
-            <div>Issued by: FreeCodeCamp</div>
-            <div>Date: February 2023</div>
+            <CardTitle>React - The Complete Guide 2023</CardTitle>
+            <div>Issued by: Udemy</div>
+            <div>Date: November 2023</div>
           </CardHeader>
           <div className="p-4">
             <CardDescription>
-              Skills: HTML, CSS, Responsive Design
+              Skills: React, Next.js, Tailwind CSS
             </CardDescription>
-            <CardDescription>Certification ID: 2345678901</CardDescription>
+            <CardDescription>
+              Certification ID: UC-7a235ce1-a826-4529-8d86-26150d69e19f
+            </CardDescription>
           </div>
         </Card>
       </div>
