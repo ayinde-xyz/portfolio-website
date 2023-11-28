@@ -63,7 +63,7 @@ const MainNav = ({ className, setIsOpen }: MainNavProps) => {
           href={route.href}
           className={cn(
             "font-medium transition-colors hover:text-primary",
-            route.active ? "" : ""
+            route.active && "text-red"
           )}>
           {route.label}
         </Link>

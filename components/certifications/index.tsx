@@ -9,7 +9,7 @@ import { BlurEffect1, BlurEffect2 } from "../blurEffect";
 const Certifications = () => {
   return (
     <section
-      id="certification"
+      id="certifications"
       className="relative min-h-screen snap-normal snap-center ">
       <BlurEffect1 />
       <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 lg:gap-10">

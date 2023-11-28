@@ -28,7 +28,7 @@ const IntroPage = () => {
             </Link>
           </div>
           <div>
-            <Link href={"#about-me"} className="z-10 relative top-16">
+            <Link href={"#about-me"} className=" relative top-16">
               <ChevronsDown className="animate-bounce h-10 w-10 md:h-16 md:w-16" />
             </Link>
           </div>

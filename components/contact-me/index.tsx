@@ -15,9 +15,10 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/components/ui/textarea";
 import { BlurEffect1, BlurEffect2 } from "@/components/blurEffect";
-import { useState } from "react";
+import { FormHTMLAttributes, useRef, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import emailjs from "@emailjs/browser";
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -36,6 +37,7 @@ const formSchema = z.object({
 
 const ContactMe = () => {
   const [loading, setLoading] = useState(false);
+  const ref = useRef<HTMLFormElement | null>(null);
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -46,10 +48,20 @@ const ContactMe = () => {
     },
   });
 
+  // The expected type comes from property 'ref' which is declared here on type 'DetailedHTMLProps<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>'
+  //<FormHTMLAttributes<HTMLFormElement>, HTMLFormElement>
+
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     try {
       setLoading(true);
       await axios.post("/api/resend", values);
+      ref.current !== null &&
+        (await emailjs.sendForm(
+          "service_dp3xxyw",
+          "template_ckxf41j",
+          ref.current,
+          "j-xKiO9mE53I1QRI-"
+        ));
       toast.success("Message sent successfully");
     } catch (error) {
       console.log(error);
@@ -71,7 +83,10 @@ const ContactMe = () => {
       </h1>
 
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <form
+          ref={ref}
+          onSubmit={form.handleSubmit(onSubmit)}
+          className="space-y-8">
           <FormField
             control={form.control}
             name="name"
