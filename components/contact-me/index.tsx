@@ -60,7 +60,7 @@ const ContactMe = () => {
           "service_dp3xxyw",
           "template_ckxf41j",
           ref.current,
-          "j-xKiO9mE53I1QRI-"
+          process.env.EMAILJS_PUBLIC_KEY
         ));
       toast.success("Message sent successfully");
     } catch (error) {
