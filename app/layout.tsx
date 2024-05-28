@@ -23,12 +23,7 @@ export const metadata: Metadata = {
         url: "https://media.istockphoto.com/id/929848296/photo/top-view-of-business-workplace-with-laptop-and-coffee-cup.jpg?s=612x612&w=0&k=20&c=YAUk15S7WVFt8YjgWaWFvPbumVdZ0viYsPYVss2OUOk=",
         width: 800,
         height: 600,
-      },
-      {
-        url: "https://nextjs.org/og-alt.png",
-        width: 1800,
-        height: 1600,
-        alt: "My custom alt",
+        alt: "Ayinde AbdurRahman",
       },
     ],
     locale: "en_US",
