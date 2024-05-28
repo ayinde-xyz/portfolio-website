@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
   authors: { name: "Ayinde AbdurRahman" },
   openGraph: {
-    title: "Ayinde AbdulRahman",
+    title: "Ayinde AbdurRahman",
     description: "My personal portfolio website built with Next.js and React",
     url: "https://ayindeabdulrahman.vercel.app",
     siteName: "Ayinde AbdurRahman",
