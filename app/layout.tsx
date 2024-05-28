@@ -9,15 +9,15 @@ import { Analytics } from "@vercel/analytics/react";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Ayinde AbdulRahman",
+  title: "Ayinde AbdurRahman",
   description: "My personal portfolio website built with Next.js and React",
   metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
-  authors: { name: "Ayinde AbdulRahman" },
+  authors: { name: "Ayinde AbdurRahman" },
   openGraph: {
     title: "Ayinde AbdulRahman",
     description: "My personal portfolio website built with Next.js and React",
-    url: "https://nextjs.org",
-    siteName: "Next.js",
+    url: "https://ayindeabdulrahman.vercel.app",
+    siteName: "Ayinde AbdurRahman",
     images: [
       {
         url: "https://media.istockphoto.com/id/929848296/photo/top-view-of-business-workplace-with-laptop-and-coffee-cup.jpg?s=612x612&w=0&k=20&c=YAUk15S7WVFt8YjgWaWFvPbumVdZ0viYsPYVss2OUOk=",
@@ -36,13 +36,13 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayinde AbdulRahman",
+    title: "Ayinde AbdurRahman",
     description: "My personal portfolio website built with Next.js and React",
     site: "@ayinde_xyz",
     creator: "@ayinde_xyz",
     images: {
       url: "https://media.istockphoto.com/id/929848296/photo/top-view-of-business-workplace-with-laptop-and-coffee-cup.jpg?s=612x612&w=0&k=20&c=YAUk15S7WVFt8YjgWaWFvPbumVdZ0viYsPYVss2OUOk=",
-      alt: "Built by Ayinde AbdulRahman",
+      alt: "Built by Ayinde AbdurRahman",
     },
   },
 };
