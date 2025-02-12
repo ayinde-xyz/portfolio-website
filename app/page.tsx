@@ -1,9 +1,9 @@
-import AboutMe from "@/components/about-me";
-import Certifications from "@/components/certifications";
-import ContactMe from "@/components/contact-me";
-import IntroPage from "@/components/intro";
-import Projects from "@/components/projects";
-import Skills from "@/components/skills";
+import AboutMe from "@/components/blocks/about-me";
+import Certifications from "@/components/blocks/certifications";
+import ContactMe from "@/components/blocks/contact-me";
+import IntroPage from "@/components/blocks/intro";
+import Projects from "@/components/blocks/projects";
+import Skills from "@/components/blocks/skills";
 
 export default function Home() {
   return (

@@ -60,3 +60,33 @@ export default function RootLayout({
     </html>
   );
 }
+
+// ↑ @emailjs/browser 3.12.1 → 4.4.1
+// ↑ @types/node 20.17.6 → 22.13.1
+// ↑ @types/react 18.3.12 → 19.0.8
+// ↑ @types/react-dom 18.3.1 → 19.0.3
+// ↑ eslint 8.57.1 → 9.20.1
+// ↑ eslint-config-next 14.0.2 → 15.1.7
+// ↑ postcss 8.4.49 → 8.5.2
+// ↑ tailwind-scrollbar 3.1.0 → 4.0.0
+// ↑ tailwindcss 3.4.14 → 4.0.6
+// ↑ typescript 5.6.3 → 5.7.3
+// ↑ @hookform/resolvers 3.9.1 → 4.0.0
+// ↑ @radix-ui/react-dropdown-menu 2.1.2 → 2.1.6
+// ↑ @radix-ui/react-label 2.1.0 → 2.1.2
+// ↑ @radix-ui/react-slot 1.1.0 → 1.1.2
+// ↑ @vercel/analytics 1.4.0 → 1.5.0
+// ↑ axios 1.7.7 → 1.7.9
+// ↑ class-variance-authority 0.7.0 → 0.7.1
+// ↑ framer-motion 11.11.13 → 12.4.2
+// ↑ lucide-react 0.292.0 → 0.475.0
+// ↑ next 14.2.17 → 15.1.7
+// ↑ next-themes 0.2.1 → 0.4.4
+// ↑ react 18.3.1 → 19.0.0
+// ↑ react-dom 18.3.1 → 19.0.0
+// ↑ react-hook-form 7.53.2 → 7.54.2
+// ↑ react-hot-toast 2.4.1 → 2.5.1
+// ↑ resend 2.1.0 → 4.1.2
+// ↑ styled-components 6.1.13 → 6.1.15
+// ↑ tailwind-merge 2.5.4 → 3.0.1
+// ↑ zod 3.23.8 → 3.24.2
