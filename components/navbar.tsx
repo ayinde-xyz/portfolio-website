@@ -6,15 +6,6 @@ import MainNav from "./main-nav";
 import { AnimatePresence, motion } from "framer-motion";
 import { maskAnimation, menuAnimation } from "./animations/navbar.animaton";
 
-// const navItems = [
-//   "Intro",
-//   "About me",
-//   "My Projects",
-//   "Certifications",
-//   "Gigs",
-//   "Contact Me",
-// ];
-
 const Navbar = ({
   isOpen,
   setIsOpen,
@@ -45,10 +36,7 @@ const Navbar = ({
               <X onClick={() => setIsOpen(false)} className="w-6 h-6" />
             </Button>
 
-            <MainNav
-              setIsOpen={setIsOpen}
-              className="flex flex-col items-center justify-center space-y-10 text-2xl"
-            />
+            <MainNav className="flex flex-col items-center justify-center space-y-10 text-2xl" />
           </motion.div>
         </>
       )}

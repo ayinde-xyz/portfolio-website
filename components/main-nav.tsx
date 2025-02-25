@@ -3,52 +3,54 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useSidebar } from "./ui/sidebar";
 
 interface MainNavProps {
   className?: string;
-  setIsOpen: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const MainNav = ({ className, setIsOpen }: MainNavProps) => {
+const MainNav = ({ className }: MainNavProps) => {
   const pathname = usePathname();
-
-  const handleClicked = () => {
-    setIsOpen(false);
-  };
+  const { setOpen } = useSidebar();
 
   const routes = [
     {
-      href: "#intro",
+      href: "/#intro",
       label: "Intro",
       active: pathname === "/#intro",
     },
     {
-      href: "#about-me",
+      href: "/#about-me",
       label: "About me",
       active: pathname === "/#about-me",
     },
     {
-      href: "#projects",
-      label: "My Projects",
+      href: "/#projects",
+      label: "Projects",
       active: pathname === "/#projects",
     },
     {
-      href: "#certifications",
+      href: "/#certifications",
       label: "Certifications",
       active: pathname === "/#certifications",
     },
     {
-      href: "#skills",
+      href: "/#skills",
       label: "Skills",
       active: pathname === "/#skills",
     },
     {
-      href: "#experience",
+      href: "/#experience",
       label: "Experience",
       active: pathname === "/#experience",
     },
     {
-      href: "#contact-me",
+      href: "/studio",
+      label: "Admin",
+      active: pathname === "/studio",
+    },
+    {
+      href: "/#contact-me",
       label: "Contact Me",
       active: pathname === "/#contact-me",
     },
@@ -58,7 +60,9 @@ const MainNav = ({ className, setIsOpen }: MainNavProps) => {
     <nav className={cn("flex items-center", className)}>
       {routes.map((route) => (
         <Link
-          onClick={handleClicked}
+          onClick={() => {
+            setOpen(false);
+          }}
           key={route.href}
           href={route.href}
           className={cn(
