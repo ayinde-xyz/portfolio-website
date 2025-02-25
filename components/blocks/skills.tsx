@@ -9,6 +9,8 @@ import sanity from "@/public/svg/sanity.svg";
 import framer from "@/public/svg/framer.svg";
 import stripe from "@/public/svg/stripe.svg";
 import firebase from "@/public/svg/firebase.svg";
+import prisma from "@/public/svg/prisma.svg";
+import { cn } from "@/lib/utils";
 
 const SkillBadge = ({
   src,
@@ -22,7 +24,10 @@ const SkillBadge = ({
   return (
     <figure>
       <Image
-        className={`h-10 w-max md:h-12 lg:h-16 dark:drop-shadow-[0_0_0.3rem_#ffffff70] ${className}`}
+        className={cn(
+          "h-10 w-max md:h-12 lg:h-16 dark:drop-shadow-[0_0_0.3rem_#ffffff70]",
+          className
+        )}
         width={100}
         height={100}
         src={src}
@@ -46,7 +51,7 @@ const Skills = () => {
       <div className="mb-12 mx-auto flex w-full flex-wrap items-center justify-center gap-10 px-5 sm:mb-24 sm:w-4/5 sm:px-0 lg:gap-16 xl:w-3/5">
         <SkillBadge src={next} alt="NextJS" className="dark:invert" />
         <SkillBadge src={react} alt="React JS" />
-        <SkillBadge src={typescript} alt="React JS" />
+        <SkillBadge src={typescript} alt="Typescript" />
         <SkillBadge
           src={tailwindcss}
           alt="Tailwind CSS"
@@ -65,6 +70,11 @@ const Skills = () => {
           className="dark:invert h-10"
         />
         <SkillBadge src={firebase} alt="Framer-Motion" className=" h-10" />
+        <SkillBadge
+          src={prisma}
+          alt="Framer-Motion"
+          className=" h-10 dark:invert"
+        />
       </div>
     </section>
   );

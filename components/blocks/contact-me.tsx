@@ -15,7 +15,7 @@ import * as z from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Textarea } from "@/components/ui/textarea";
 import { BlurEffect1, BlurEffect2 } from "@/components/blurEffect";
-import { FormHTMLAttributes, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
@@ -55,13 +55,14 @@ const ContactMe = () => {
     try {
       setLoading(true);
       await axios.post("/api/resend", values);
-      ref.current !== null &&
-        (await emailjs.sendForm(
+      if (ref.current) {
+        await emailjs.sendForm(
           "service_dp3xxyw",
           "template_ckxf41j",
           ref.current,
           process.env.EMAILJS_PUBLIC_KEY
-        ));
+        );
+      }
       toast.success("Message sent successfully");
     } catch (error) {
       console.log(error);
@@ -76,7 +77,7 @@ const ContactMe = () => {
   return (
     <section
       id="contact-me"
-      className="min-h-screen snap-start snap-normal w-full flex flex-col px-10 relative">
+      className=" snap-start snap-normal md:w-2/3 mx-auto flex flex-col px-4 relative">
       <BlurEffect1 />
       <h1 className="text-center text-xl md:text-4xl">
         Feel free to hit me up

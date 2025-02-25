@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "@/components/header";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ToasterProvider } from "@/providers/toast-provider";
 import { Analytics } from "@vercel/analytics/react";
@@ -50,9 +49,13 @@ export default function RootLayout({
       className="scroll-smooth md:scrollbar-thin md:scrollbar-thumb-rounded-md md:scrollbar-thumb-gray-900 "
       lang="en">
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange>
           <ToasterProvider />
-          <Header />
+
           {children}
         </ThemeProvider>
         <Analytics />

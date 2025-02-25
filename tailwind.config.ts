@@ -1,4 +1,5 @@
 import type { Config } from "tailwindcss";
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
   content: [
@@ -6,11 +7,12 @@ const config: Config = {
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
+    "./sanity/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   darkMode: "class",
-  variants: {
-    scrollbars: ["rounded"],
-  },
+  // variants: {
+  //   scrollbars: ["rounded"],
+  // },
   theme: {
     container: {
       center: true,
@@ -88,6 +90,7 @@ const config: Config = {
   plugins: [
     require("tailwindcss-animate"),
     require("tailwind-scrollbar")({ nocompatible: true }),
+    typography,
   ],
 };
 export default config;
