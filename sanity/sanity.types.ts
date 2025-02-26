@@ -488,7 +488,7 @@ export type EXPERIENCE_QUERYResult = Array<{
   endDate: string | null;
 }>;
 // Variable: HERO_QUERY
-// Query: *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) [0] {    content,      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage,  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
+// Query: *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) [0] {    content,      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage {    asset->{      url,      metadata    },    alt  },  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
 export type HERO_QUERYResult = {
   content: null;
   _id: string;
@@ -526,16 +526,11 @@ export type HERO_QUERYResult = {
     _key: string;
   }> | null;
   mainImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
+    asset: {
+      url: string | null;
+      metadata: SanityImageMetadata | null;
+    } | null;
+    alt: string | null;
   } | null;
   categories: Array<{
     _id: string;
@@ -559,7 +554,7 @@ export type HERO_QUERYResult = {
   } | null;
 } | null;
 // Variable: MORESTORIES_QUERY
-// Query: *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage,  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
+// Query: *[_type == "post" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage {    asset->{      url,      metadata    },    alt  },  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
 export type MORESTORIES_QUERYResult = Array<{
   _id: string;
   status: "draft" | "published";
@@ -596,16 +591,11 @@ export type MORESTORIES_QUERYResult = Array<{
     _key: string;
   }> | null;
   mainImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
+    asset: {
+      url: string | null;
+      metadata: SanityImageMetadata | null;
+    } | null;
+    alt: string | null;
   } | null;
   categories: Array<{
     _id: string;
@@ -629,7 +619,7 @@ export type MORESTORIES_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: POSTS_QUERY
-// Query: *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) {      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage,  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
+// Query: *[_type == "post" && defined(slug.current)] | order(date desc, _updatedAt desc) {      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage {    asset->{      url,      metadata    },    alt  },  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
 export type POSTS_QUERYResult = Array<{
   _id: string;
   status: "draft" | "published";
@@ -666,16 +656,11 @@ export type POSTS_QUERYResult = Array<{
     _key: string;
   }> | null;
   mainImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
+    asset: {
+      url: string | null;
+      metadata: SanityImageMetadata | null;
+    } | null;
+    alt: string | null;
   } | null;
   categories: Array<{
     _id: string;
@@ -699,7 +684,7 @@ export type POSTS_QUERYResult = Array<{
   } | null;
 }>;
 // Variable: POST_QUERY
-// Query: *[_type == "post" && slug.current == $slug] [0] {      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage,  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
+// Query: *[_type == "post" && slug.current == $slug] [0] {      _id,  "status": select(_originalId in path("drafts.**") => "draft", "published"),  "title": coalesce(title, "Untitled"),  "slug": slug.current,  body,  mainImage {    asset->{      url,      metadata    },    alt  },  "categories": coalesce(    categories[]->{      _id,      slug,      title    },    []  ),  "date": coalesce(publishedAt, _updatedAt),  "author": author->{"name": coalesce(name, "Anonymous"), image},  }
 export type POST_QUERYResult = {
   _id: string;
   status: "draft" | "published";
@@ -736,16 +721,11 @@ export type POST_QUERYResult = {
     _key: string;
   }> | null;
   mainImage: {
-    asset?: {
-      _ref: string;
-      _type: "reference";
-      _weak?: boolean;
-      [internalGroqTypeReferenceTo]?: "sanity.imageAsset";
-    };
-    hotspot?: SanityImageHotspot;
-    crop?: SanityImageCrop;
-    alt?: string;
-    _type: "image";
+    asset: {
+      url: string | null;
+      metadata: SanityImageMetadata | null;
+    } | null;
+    alt: string | null;
   } | null;
   categories: Array<{
     _id: string;
@@ -777,9 +757,9 @@ declare module "@sanity/client" {
     "*[_type == \"projects\"] {\n        _id,\n        title,\n        slug,\n        bio,\n        description,\n        url,\n        image,\n}": PROJECTS_QUERYResult;
     "*[_type == \"certifications\"] {\n        _id,\n        title,\n        organization,\n        description,\n        date,\n        certificationId,\n        url,\n        image,\n}": CERTIFICATIONS_QUERYResult;
     "*[_type == \"experience\"] {\n        _id,\n        title,\n        company,\n        description,\n        startDate,\n        endDate,\n       \n}": EXPERIENCE_QUERYResult;
-    "\n  *[_type == \"post\" && defined(slug.current)] | order(date desc, _updatedAt desc) [0] {\n    content,\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": HERO_QUERYResult;
-    "\n  *[_type == \"post\" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": MORESTORIES_QUERYResult;
-    "\n  *[_type == \"post\" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": POSTS_QUERYResult;
-    "\n  *[_type == \"post\" && slug.current == $slug] [0] {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage,\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": POST_QUERYResult;
+    "\n  *[_type == \"post\" && defined(slug.current)] | order(date desc, _updatedAt desc) [0] {\n    content,\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage {\n    asset->{\n      url,\n      metadata\n    },\n    alt\n  },\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": HERO_QUERYResult;
+    "\n  *[_type == \"post\" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage {\n    asset->{\n      url,\n      metadata\n    },\n    alt\n  },\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": MORESTORIES_QUERYResult;
+    "\n  *[_type == \"post\" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage {\n    asset->{\n      url,\n      metadata\n    },\n    alt\n  },\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": POSTS_QUERYResult;
+    "\n  *[_type == \"post\" && slug.current == $slug] [0] {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage {\n    asset->{\n      url,\n      metadata\n    },\n    alt\n  },\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": POST_QUERYResult;
   }
 }

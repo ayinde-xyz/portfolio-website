@@ -13,10 +13,31 @@ import type { Metadata } from "next";
 export const generateMetadata = async (): Promise<Metadata> => {
   const { data: metadataInfo } = await sanityFetch({ query: INTRO_QUERY });
 
+  if (!metadataInfo) {
+    return {};
+  }
   return {
-    title: metadataInfo?.seo.title,
-    description: metadataInfo?.seo.description,
+    title: metadataInfo.seo.title,
+    description: metadataInfo.seo.description,
+    metadataBase: new URL(`https://${process.env.VERCEL_URL}`),
+    authors: { name: "Ayinde AbdurRahman" },
     openGraph: {
+      title: metadataInfo.seo.title!,
+      description: metadataInfo.seo.description!,
+      url: "https://ayindeabdulrahman.vercel.app",
+      siteName: "Ayinde AbdurRahman",
+      images: [
+        metadataInfo.seo.image ? urlFor(metadataInfo.seo.image).url() : "",
+      ],
+      locale: "en_US",
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: "Ayinde AbdurRahman",
+      description: "My personal portfolio website built with Next.js and React",
+      site: "@ayinde_xyz",
+      creator: "@ayinde_xyz",
       images: [
         metadataInfo?.seo.image ? urlFor(metadataInfo.seo.image).url() : "",
       ],

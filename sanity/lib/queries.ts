@@ -52,7 +52,13 @@ const postFields = /* groq */ `
   "title": coalesce(title, "Untitled"),
   "slug": slug.current,
   body,
-  mainImage,
+  mainImage {
+    asset->{
+      url,
+      metadata
+    },
+    alt
+  },
   "categories": coalesce(
     categories[]->{
       _id,

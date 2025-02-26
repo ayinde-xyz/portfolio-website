@@ -22,7 +22,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       post?.date || ""
     ).toLocaleDateString()}`,
     openGraph: {
-      images: [post?.mainImage ? urlFor(post.mainImage).url() : ""],
+      images: [
+        post?.mainImage
+          ? urlFor(post.mainImage).url()
+          : `/api/og?slug=${params}`,
+      ],
     },
   };
 }
