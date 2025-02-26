@@ -95,3 +95,14 @@ export const POST_QUERY = defineQuery(`
     ${postFields}
   }
 `);
+
+export const SITEMAP_QUERY = defineQuery(`
+  *[_type in ["intro", "post"] && defined(slug.current)] {
+      "href": select(
+        _type == "intro" => "/" ,
+        _type == "post" => "/blogs/" + slug.current,
+        slug.current
+      ),
+      _updatedAt
+  }
+  `);

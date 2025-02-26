@@ -748,6 +748,15 @@ export type POST_QUERYResult = {
     } | null;
   } | null;
 } | null;
+// Variable: SITEMAP_QUERY
+// Query: *[_type in ["intro", "post"] && defined(slug.current)] {      "href": select(        _type == "intro" => "/" ,        _type == "post" => "/blogs/" + slug.current,        slug.current      ),      _updatedAt  }
+export type SITEMAP_QUERYResult = Array<{
+  href: "/";
+  _updatedAt: string;
+} | {
+  href: string | null;
+  _updatedAt: string;
+}>;
 
 // Query TypeMap
 import "@sanity/client";
@@ -761,5 +770,6 @@ declare module "@sanity/client" {
     "\n  *[_type == \"post\" && _id != $skip && defined(slug.current)] | order(date desc, _updatedAt desc) [0...$limit] {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage {\n    asset->{\n      url,\n      metadata\n    },\n    alt\n  },\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": MORESTORIES_QUERYResult;
     "\n  *[_type == \"post\" && defined(slug.current)] | order(date desc, _updatedAt desc) {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage {\n    asset->{\n      url,\n      metadata\n    },\n    alt\n  },\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": POSTS_QUERYResult;
     "\n  *[_type == \"post\" && slug.current == $slug] [0] {\n    \n  _id,\n  \"status\": select(_originalId in path(\"drafts.**\") => \"draft\", \"published\"),\n  \"title\": coalesce(title, \"Untitled\"),\n  \"slug\": slug.current,\n  body,\n  mainImage {\n    asset->{\n      url,\n      metadata\n    },\n    alt\n  },\n  \"categories\": coalesce(\n    categories[]->{\n      _id,\n      slug,\n      title\n    },\n    []\n  ),\n  \"date\": coalesce(publishedAt, _updatedAt),\n  \"author\": author->{\"name\": coalesce(name, \"Anonymous\"), image},\n\n  }\n": POST_QUERYResult;
+    "\n  *[_type in [\"intro\", \"post\"] && defined(slug.current)] {\n      \"href\": select(\n        _type == \"intro\" => \"/\" ,\n        _type == \"post\" => \"/blogs/\" + slug.current,\n        slug.current\n      ),\n      _updatedAt\n  }\n  ": SITEMAP_QUERYResult;
   }
 }
