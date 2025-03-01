@@ -89,3 +89,11 @@ export default function RootLayout({
 // ↑ styled-components 6.1.13 → 6.1.15
 // ↑ tailwind-merge 2.5.4 → 3.0.1
 // ↑ zod 3.23.8 → 3.24.2
+
+// ↑ @types/node 22.13.5 → 22.13.8
+// ↑ eslint-config-next 15.1.7 → 15.2.0
+// ↑ typescript 5.7.3 → 5.8.2
+// ↑ @sanity/client 6.28.1 → 6.28.2
+// ↑ @sanity/icons 3.6.0 → 3.7.0
+// ↑ lucide-react 0.476.0 → 0.477.0
+// ↑ next 15.1.7 → 15.2.0
