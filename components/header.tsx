@@ -52,7 +52,7 @@ const Header = () => {
         <ModeToggle />
 
         {/* Nav Toggle */}
-        <SidebarTrigger className="" />
+        <SidebarTrigger className="md:hidden block" />
         {/* <Button
           onClick={() => {
             setOpen(false);

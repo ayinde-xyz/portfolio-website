@@ -50,13 +50,8 @@ export default function RootLayout({
       className="scroll-smooth md:scrollbar-thin md:scrollbar-thumb-rounded-md md:scrollbar-thumb-gray-900 "
       lang="en">
       <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"
-          enableSystem
-          disableTransitionOnChange>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <ToasterProvider />
-
           {children}
         </ThemeProvider>
         <Analytics />
