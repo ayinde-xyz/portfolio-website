@@ -57,7 +57,7 @@ const Projects = async () => {
                     View Details
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="overflow-scroll">
+                <DialogContent className="max-h-screen  overflow-y-scroll m-4">
                   <DialogHeader>{project.title}</DialogHeader>
                   <DialogDescription>
                     <p className="whitespace-pre-wrap">{project.description}</p>
@@ -76,7 +76,7 @@ const Projects = async () => {
                       />
                     )}
                     <Link
-                      className="mt-4 inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
+                      className="mt-4 items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
                       href={project.url || ""}>
                       View Website
                     </Link>
