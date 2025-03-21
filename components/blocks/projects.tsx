@@ -57,14 +57,14 @@ const Projects = async () => {
                     View Details
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-h-screen  overflow-y-scroll m-4">
+                <DialogContent className="max-h-screen  overflow-y-scroll flex items-center flex-col gap-x-4">
                   <DialogHeader>{project.title}</DialogHeader>
                   <DialogDescription>
                     <p className="whitespace-pre-wrap">{project.description}</p>
                     {project?.image && (
                       <Image
                         alt={project.image.alt || "Project image"}
-                        className="object-cover rounded-md"
+                        className="object-cover rounded-md pt-6"
                         src={urlFor(project.image)
                           .width(500)
                           .height(300)
@@ -75,11 +75,11 @@ const Projects = async () => {
                         height={300}
                       />
                     )}
-                    <Link
-                      className="mt-4 items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700"
-                      href={project.url || ""}>
-                      View Website
-                    </Link>
+                    <Button className="mt-6 mx-auto px-4  py-2 border border-transparent text-sm font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700">
+                      <Link className="" href={project.url || ""}>
+                        View Website
+                      </Link>
+                    </Button>
                   </DialogDescription>
                 </DialogContent>
               </Dialog>
