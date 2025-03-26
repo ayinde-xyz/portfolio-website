@@ -57,7 +57,7 @@ const Projects = async () => {
                     View Details
                   </Button>
                 </DialogTrigger>
-                <DialogContent className="max-h-screen py-10 overflow-y-scroll flex items-center flex-col gap-x-4">
+                <DialogContent className="max-h-screen py-13 overflow-y-scroll flex items-center flex-col gap-x-4">
                   <DialogHeader>{project.title}</DialogHeader>
                   <DialogDescription>
                     <p className="whitespace-pre-wrap">{project.description}</p>
