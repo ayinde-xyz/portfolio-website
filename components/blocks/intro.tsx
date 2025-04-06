@@ -16,7 +16,7 @@ const IntroPage = async () => {
               Welcome to My Portfolio
             </h1>
             <p className="max-w-[700px] text-zinc-500 md:text-xl dark:text-zinc-400">
-              I am a front-end developer with a passion for creating beautiful
+              I am a fullstack developer with a passion for creating beautiful
               and accessible web experiences.
             </p>
           </div>
