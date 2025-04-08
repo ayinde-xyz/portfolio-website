@@ -5,6 +5,7 @@ import Typewriter from "@/components/typewriter";
 import { BlurEffect1, BlurEffect2 } from "../blurEffect";
 import { sanityFetch } from "@/sanity/lib/live";
 import { INTRO_QUERY } from "@/sanity/lib/queries";
+import { urlFor } from "@/sanity/lib/image";
 
 const AboutMe = async () => {
   // const targetRef = useRef<HTMLDivElement | null>(null);
@@ -32,7 +33,12 @@ const AboutMe = async () => {
           alt="Profile Picture"
           className="object-cover rounded-full"
           height="128"
-          src="/placeholder.svg"
+          src={
+            aboutMe?.image
+              ? urlFor(aboutMe.image).width(128).height(128).url()
+              : "https://via.placeholder.com/128"
+          }
+          priority
           style={{
             aspectRatio: "128/128",
             objectFit: "cover",
