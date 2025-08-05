@@ -49,6 +49,7 @@ export default function RootLayout({
     <html
       className="scroll-smooth md:scrollbar-thin md:scrollbar-thumb-rounded-md md:scrollbar-thumb-gray-900 "
       lang="en">
+      {/* <body className="text-red-400 text-4xl bg-amber-700">How are you</body> */}
       <body className={inter.className}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <ToasterProvider />
@@ -97,3 +98,38 @@ export default function RootLayout({
 // ↑ @sanity/icons 3.6.0 → 3.7.0
 // ↑ lucide-react 0.476.0 → 0.477.0
 // ↑ next 15.1.7 → 15.2.0
+
+// ↑ @tailwindcss/postcss 4.0.9 → 4.1.11
+// ↑ @types/node 22.13.8 → 24.1.0
+// ↑ @types/react 19.0.10 → 19.1.9
+// ↑ @types/react-dom 19.0.4 → 19.1.7
+// ↑ eslint 9.21.0 → 9.32.0
+// ↑ eslint-config-next 15.2.0 → 15.4.5
+// ↑ postcss 8.5.3 → 8.5.6
+// ↑ tailwind-scrollbar 4.0.1 → 4.0.2
+// ↑ tailwindcss 4.0.9 → 4.1.11
+// ↑ typescript 5.8.2 → 5.9.2
+// ↑ @hookform/resolvers 4.1.2 → 5.2.1
+// ↑ @radix-ui/react-dialog 1.1.6 → 1.1.14
+// ↑ @radix-ui/react-dropdown-menu 2.1.6 → 2.1.15
+// ↑ @radix-ui/react-label 2.1.2 → 2.1.7
+// ↑ @radix-ui/react-separator 1.1.2 → 1.1.7
+// ↑ @radix-ui/react-slot 1.1.2 → 1.2.3
+// ↑ @radix-ui/react-tooltip 1.1.8 → 1.2.7
+// ↑ @sanity/client 6.28.1 → 7.8.1
+// ↑ @sanity/icons 3.7.0 → 3.7.4
+// ↑ @sanity/vision 3.77.2 → 4.2.0
+// ↑ axios 1.8.1 → 1.11.0
+// ↑ framer-motion 12.4.7 → 12.23.12
+// ↑ lucide-react 0.477.0 → 0.536.0
+// ↑ next 15.2.0 → 15.4.5
+// ↑ next-sanity 9.8.60 → 10.0.6
+// ↑ next-themes 0.4.4 → 0.4.6
+// ↑ react 19.0.0 → 19.1.1
+// ↑ react-dom 19.0.0 → 19.1.1
+// ↑ react-hook-form 7.54.2 → 7.62.0
+// ↑ resend 4.1.2 → 4.7.0
+// ↑ sanity 3.77.2 → 4.2.0
+// ↑ styled-components 6.1.15 → 6.1.19
+// ↑ tailwind-merge 3.0.2 → 3.3.1
+// ↑ zod 3.24.2 → 4.0.14

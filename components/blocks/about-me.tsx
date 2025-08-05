@@ -8,19 +8,6 @@ import { INTRO_QUERY } from "@/sanity/lib/queries";
 import { urlFor } from "@/sanity/lib/image";
 
 const AboutMe = async () => {
-  // const targetRef = useRef<HTMLDivElement | null>(null);
-
-  // const { scrollYProgress } = useScroll({
-  //   target: targetRef,
-  //   offset: ["start start", "end end"],
-  // });
-
-  // const scale = useTransform(scrollYProgress, [1, 0.8], [0, 1]);
-  // const yText = useTransform(
-  //   scrollYProgress,
-  //   [0, 200, 300, 500],
-  //   [0, 50, 50, 300]
-  // );
   const { data: aboutMe } = await sanityFetch({ query: INTRO_QUERY });
 
   return (
