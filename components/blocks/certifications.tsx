@@ -7,12 +7,13 @@ import {
 import { BlurEffect1, BlurEffect2 } from "../blurEffect";
 import { sanityFetch } from "@/sanity/lib/live";
 import { CERTIFICATIONS_QUERY } from "@/sanity/lib/queries";
+import { CERTIFICATIONS_QUERYResult } from "@/sanity/sanity.types";
 
 const Certifications = async () => {
   const { data: certifications } = await sanityFetch({
     query: CERTIFICATIONS_QUERY,
   });
-  // console.log(certifications);
+  console.log(certifications);
   return (
     <section
       id="certifications"
