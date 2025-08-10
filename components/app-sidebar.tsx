@@ -1,7 +1,7 @@
 "use client";
 import { Sidebar, useSidebar } from "@/components/ui/sidebar";
 import { motion, AnimatePresence } from "framer-motion";
-import { maskAnimation, menuAnimation } from "./animations/navbar.animaton";
+import { menuAnimation } from "./animations/navbar.animaton";
 import MainNav from "./main-nav";
 import { Button } from "./ui/button";
 import { X } from "lucide-react";
@@ -15,7 +15,19 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
           <>
             <motion.div
               className="fixed left-0 top-0 z-20 h-full w-full bg-zinc-900"
-              variants={maskAnimation}
+              variants={{
+                from: {
+                  x: "-100%",
+                  transition: { ease: [0.2, 1, 0.8, 0], duration: 0.5 },
+                },
+                to: {
+                  x: "100%",
+                  transition: {
+                    ease: ["easeIn", "easeOut", "easeInOut"],
+                    duration: 0.5,
+                  },
+                },
+              }}
               initial="from"
               animate="to"
               exit="from"

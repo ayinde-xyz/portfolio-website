@@ -1,4 +1,4 @@
-import { POST_QUERYResult } from "@/sanity/sanity.types";
+import { POST_QUERYResult } from "@/sanity.types";
 
 type CategoriesProps = {
   categories: NonNullable<POST_QUERYResult>["categories"];

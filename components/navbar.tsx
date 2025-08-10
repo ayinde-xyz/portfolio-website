@@ -4,7 +4,7 @@ import { Button } from "./ui/button";
 import { X } from "lucide-react";
 import MainNav from "./main-nav";
 import { AnimatePresence, motion } from "framer-motion";
-import { maskAnimation, menuAnimation } from "./animations/navbar.animaton";
+import { menuAnimation } from "./animations/navbar.animaton";
 
 const Navbar = ({
   isOpen,
@@ -19,7 +19,19 @@ const Navbar = ({
         <>
           <motion.div
             className="fixed left-0 top-0 z-20 h-full w-full bg-zinc-900"
-            variants={maskAnimation}
+            variants={{
+              from: {
+                x: "-100%",
+                transition: { ease: [0.2, 1, 0.8, 0], duration: 0.5 },
+              },
+              to: {
+                x: "100%",
+                transition: {
+                  ease: ["easeIn", "easeOut", "easeInOut"],
+                  duration: 0.5,
+                },
+              },
+            }}
             initial="from"
             animate="to"
             exit="from"
