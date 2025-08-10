@@ -12,7 +12,7 @@ const Certifications = async () => {
   const { data: certifications } = await sanityFetch({
     query: CERTIFICATIONS_QUERY,
   });
-  // console.log(certifications);
+  console.log(certifications);
   return (
     <section
       id="certifications"
