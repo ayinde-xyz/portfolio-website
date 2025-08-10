@@ -1,6 +1,6 @@
 import { Author } from "@/components/blogs/author";
 import { Categories } from "@/components/blogs/categories";
-import { POSTS_QUERYResult } from "@/sanity/sanity.types";
+import { POSTS_QUERYResult } from "@/sanity.types";
 import { PublishedAt } from "@/components/blogs/published-at";
 import { urlFor } from "@/sanity/lib/image";
 import Image from "next/image";

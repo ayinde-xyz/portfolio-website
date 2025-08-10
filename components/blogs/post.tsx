@@ -2,7 +2,7 @@ import { Author } from "@/components/blogs/author";
 import { Categories } from "@/components/blogs/categories";
 import { components } from "@/components/blogs/portable-text";
 import { PortableText } from "next-sanity";
-import { POST_QUERYResult } from "@/sanity/sanity.types";
+import { POST_QUERYResult } from "@/sanity.types";
 import { PublishedAt } from "@/components/blogs/published-at";
 import { Title } from "@/components/blogs/title";
 import { urlFor } from "@/sanity/lib/image";
