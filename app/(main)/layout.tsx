@@ -5,6 +5,7 @@ import { VisualEditing } from "next-sanity";
 import { DisableDraftMode } from "@/components/blogs/disableDraftMode";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { AppSidebar } from "@/components/app-sidebar";
+import Footer from "@/components/footer";
 
 export default async function MainLayout({
   children,
@@ -14,8 +15,11 @@ export default async function MainLayout({
   return (
     <SidebarProvider defaultOpen={false}>
       <AppSidebar />
-      <Header />
-      {children}
+      <div>
+        <Header />
+        {children}
+        <Footer />
+      </div>
       <SanityLive />
       {(await draftMode()).isEnabled && (
         <>

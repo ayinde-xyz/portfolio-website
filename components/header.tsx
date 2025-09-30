@@ -1,10 +1,11 @@
 "use client";
 import { useState, useEffect, useRef } from "react";
 import { ModeToggle } from "./theme-toggle";
-import { Hexagon } from "lucide-react";
 
 import MainNav from "./main-nav";
 import { SidebarTrigger } from "./ui/sidebar";
+import Logo from "@/public/svg/logo5.svg";
+import SkillBadge from "./badge";
 
 const Header = () => {
   const [isVisible, setIsVisible] = useState(true);
@@ -33,13 +34,14 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed z-10 top-0 flex flex-row w-full items-center justify-between px-4 sm:px-10 pt-3 transition-transform duration-300 ${
+      className={`fixed z-10 top-0 flex flex-row w-full items-center dark:bg-slate-900/30  bg-white/30 backdrop-blur-sm backdrop-grayscale  justify-between px-4 sm:px-10 pt-3 transition-transform duration-300 ${
         isVisible ? "translate-y-0" : "-translate-y-full"
       }`}>
       {/* Logo section */}
-      <div className="w-40 h-20">
+      <div>
         {/* <Image className="" src={Logo} alt="Logo" /> */}
-        <Hexagon className="w-10 h-10" />
+        {/* <Hexagon className="w-10 h-10" /> */}
+        <SkillBadge src={Logo} alt="Logo" className="dark:invert " />
       </div>
 
       {/* Nav section */}
@@ -47,7 +49,7 @@ const Header = () => {
       {/* <Navbar isOpen={isOpen} setIsOpen={setIsOpen} /> */}
 
       {/* Dark Mode and Nav Toggle for mobile */}
-      <div className="flex justify-start space-x-2">
+      <div className="flex items-center justify-start space-x-2">
         {/* Dark Mode */}
         <ModeToggle />
 

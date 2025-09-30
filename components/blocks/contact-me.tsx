@@ -19,6 +19,12 @@ import { useRef, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import emailjs from "@emailjs/browser";
+import { Cascadia_Code } from "next/font/google";
+
+const cascadia = Cascadia_Code({
+  subsets: ["latin"],
+  fallback: ["system-ui", "sans-serif"],
+});
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -77,9 +83,9 @@ const ContactMe = () => {
   return (
     <section
       id="contact-me"
-      className=" snap-start snap-normal md:w-2/3 mx-auto flex flex-col px-4 relative">
+      className=" snap-start  md:w-2/3 mx-auto flex flex-col mb-10 relative">
       <BlurEffect1 />
-      <h1 className="text-center text-xl md:text-4xl">
+      <h1 className="text-6xl tracking-tighter  bg-clip-text text-transparent text-center mb-7 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500  sm:text-7xl md:text-8xl lg:text-10xl/none">
         Feel free to hit me up
       </h1>
 
@@ -87,7 +93,7 @@ const ContactMe = () => {
         <form
           ref={ref}
           onSubmit={form.handleSubmit(onSubmit)}
-          className="space-y-8">
+          className={`${cascadia.className} space-y-6 md:w-2/3 mx-auto`}>
           <FormField
             control={form.control}
             name="name"

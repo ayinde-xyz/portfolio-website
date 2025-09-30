@@ -41,7 +41,7 @@ const Navbar = ({
             initial={"from"}
             animate={"to"}
             exit={"from"}
-            className="fixed top-0 left-0 z-10 h-full bg-white dark:text-black w-full flex flex-col items-center justify-center gap-5">
+            className="fixed top-0 left-0 z-10 h-full w-full flex flex-col items-center justify-center gap-5">
             <Button
               variant={"destructive"}
               className="top-5 right-10 absolute cursor-pointer">

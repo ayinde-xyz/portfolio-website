@@ -1,4 +1,3 @@
-import Image, { StaticImageData } from "next/image";
 import React from "react";
 import next from "@/public/svg/next.svg";
 import react from "@/public/svg/react.svg";
@@ -10,42 +9,31 @@ import framer from "@/public/svg/framer.svg";
 import stripe from "@/public/svg/stripe.svg";
 import firebase from "@/public/svg/firebase.svg";
 import prisma from "@/public/svg/prisma.svg";
-import { cn } from "@/lib/utils";
+import { Cascadia_Code } from "next/font/google";
+import SkillBadge from "../badge";
+import { BlurEffect1, BlurEffect2 } from "../blurEffect";
 
-const SkillBadge = ({
-  src,
-  alt,
-  className,
-}: {
-  src: StaticImageData;
-  alt: string;
-  className?: string;
-}) => {
-  return (
-    <figure>
-      <Image
-        className={cn(
-          "h-10 w-max md:h-12 lg:h-16 dark:drop-shadow-[0_0_0.3rem_#ffffff70]",
-          className
-        )}
-        width={100}
-        height={100}
-        src={src}
-        alt={alt}
-        priority
-      />
-    </figure>
-  );
-};
+const cascadia = Cascadia_Code({
+  subsets: ["latin"],
+  fallback: ["system-ui", "sans-serif"],
+});
 
 const Skills = () => {
   return (
     <section
       id="skills"
-      className="snap-center snap-always min-h-screen w-full py-12 md:py-24 lg:py-32 xl:py-48">
-      <h2 className="text-center lg:text-4xl sm:text-2xl text-lg mb-10">
-        Using the latest technologies, I have incoporated the following tools in
-        several websites
+      className="snap-start flex justify-center flex-col min-h-screen w-full">
+      <BlurEffect1 />
+      <h2
+        className={`text-center tracking-tighter  ${cascadia.className} lg:text-4xl sm:text-2xl text-lg mb-10`}>
+        Using the{" "}
+        <span className="bg-linear-to-r  bg-clip-text text-transparent from-indigo-500 via-purple-500 to-pink-500">
+          latest technologies
+        </span>
+        , I have incoporated the following tools in{" "}
+        <span className="bg-linear-to-r  bg-clip-text text-transparent from-indigo-500 via-purple-500 to-pink-500">
+          several websites
+        </span>
       </h2>
 
       <div className="mb-12 mx-auto flex w-full flex-wrap items-center justify-center gap-10 px-5 sm:mb-24 sm:w-4/5 sm:px-0 lg:gap-16 xl:w-3/5">
@@ -76,6 +64,7 @@ const Skills = () => {
           className=" h-10 dark:invert"
         />
       </div>
+      <BlurEffect2 />
     </section>
   );
 };

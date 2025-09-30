@@ -7,6 +7,12 @@ import {
 import { BlurEffect1, BlurEffect2 } from "../blurEffect";
 import { sanityFetch } from "@/sanity/lib/live";
 import { CERTIFICATIONS_QUERY } from "@/sanity/lib/queries";
+import { Cascadia_Code } from "next/font/google";
+
+const cascadia = Cascadia_Code({
+  subsets: ["latin"],
+  fallback: ["system-ui", "sans-serif"],
+});
 
 const Certifications = async () => {
   const { data: certifications } = await sanityFetch({
@@ -14,11 +20,13 @@ const Certifications = async () => {
   });
 
   return (
-    <section
-      id="certifications"
-      className="relative min-h-screen snap-normal snap-center ">
+    <section id="certifications" className="relative min-h-screen snap-start ">
+      <h1 className="text-6xl tracking-tighter  bg-clip-text text-transparent text-center mb-7 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500  sm:text-7xl md:text-8xl lg:text-10xl/none">
+        Certifications
+      </h1>
       <BlurEffect1 />
-      <div className="container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 lg:gap-10">
+      <div
+        className={`${cascadia.className} container grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 p-6 lg:gap-10`}>
         {certifications.map((certification) => (
           <Card
             key={certification._id}

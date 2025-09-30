@@ -13,7 +13,7 @@ const AboutMe = async () => {
   return (
     <section
       id="about-me"
-      className="relative min-h-screen snap-center snap-normal flex flex-col items-center justify-center space-y-4 p-4 md:space-y-6 md:p-6">
+      className="relative min-h-screen snap-center flex flex-col items-center justify-center space-y-4 md:space-y-6">
       <BlurEffect1 />
       <div className="w-24 h-24 md:w-32 md:h-32">
         <Image
@@ -34,7 +34,7 @@ const AboutMe = async () => {
         />
       </div>
       <div className="space-y-2">
-        <h2 className="text-3xl bg-clip-text text-transparent font-bold text-center md:text-4xl bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500">
+        <h2 className="bg-clip-text text-transparent font-bold text-center sm:text-4xl md:text-5xl lg:text-6xl/none bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500">
           {aboutMe?.name || "Ayinde AbdurRahman"}
         </h2>
 

@@ -14,7 +14,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
         {openMobile && (
           <>
             <motion.div
-              className="fixed left-0 top-0 z-20 h-full w-full bg-zinc-900"
+              className="fixed left-0 top-0 z-20 h-full w-full "
               variants={{
                 from: {
                   x: "-100%",
@@ -37,7 +37,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               initial={"from"}
               animate={"to"}
               exit={"from"}
-              className="fixed top-0 left-0 z-10 h-full bg-white dark:text-black w-full flex flex-col items-center justify-center gap-5">
+              className="fixed top-0 left-0 z-10 h-full text-black dark:text-white w-full flex flex-col items-center justify-center gap-5">
               <Button
                 variant={"destructive"}
                 size={"icon"}

@@ -16,7 +16,7 @@ const MainNav = ({ className }: MainNavProps) => {
   const routes = [
     {
       href: "/#intro",
-      label: "Intro",
+      label: "Introduction",
       active: pathname === "/#intro",
     },
     {
@@ -58,7 +58,7 @@ const MainNav = ({ className }: MainNavProps) => {
 
   return (
     <nav className={cn("flex items-center", className)}>
-      {routes.map((route) => (
+      {routes.map((route, idx) => (
         <Link
           onClick={() => {
             setOpen(false);
@@ -66,9 +66,10 @@ const MainNav = ({ className }: MainNavProps) => {
           key={route.href}
           href={route.href}
           className={cn(
-            "font-medium transition-colors hover:text-primary",
+            "font-medium transition-colors opacity-0 animate-slide-in-from-left hover:text-primary",
             route.active && "text-red"
-          )}>
+          )}
+          style={{ animationDelay: `${idx * 0.3}s` }}>
           {route.label}
         </Link>
       ))}

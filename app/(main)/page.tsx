@@ -1,4 +1,3 @@
-import AboutMe from "@/components/blocks/about-me";
 import Certifications from "@/components/blocks/certifications";
 import ContactMe from "@/components/blocks/contact-me";
 import Experience from "@/components/blocks/experience";
@@ -48,11 +47,11 @@ export const generateMetadata = async (): Promise<Metadata> => {
 export default function Home() {
   // console.log(aboutMe);
   return (
-    <main className="min-h-screen ">
+    <main className="snap-y">
       {/* Intro Page */}
       <IntroPage />
       {/* About me */}
-      <AboutMe />
+      {/* <AboutMe /> */}
       {/* Projects */}
       <Projects />
       {/* Certifications */}
