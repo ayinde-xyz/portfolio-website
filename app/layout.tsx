@@ -53,7 +53,8 @@ export default function RootLayout({
       className="scroll-smooth md:scrollbar-thin md:scrollbar-thumb-rounded-md md:scrollbar-thumb-gray-900 "
       lang="en">
       {/* <body className="text-red-400 text-4xl bg-amber-700">How are you</body> */}
-      <body className={inter.className}>
+      <body
+        className={`${inter.className} w-full bg-zinc-50 dark:bg-zinc-900 text-zinc-900 dark:text-zinc-50 transition-colors duration-500`}>
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <ToasterProvider />
           {children}

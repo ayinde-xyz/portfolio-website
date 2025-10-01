@@ -169,7 +169,7 @@ function Sidebar({
       <div
         data-slot="sidebar"
         className={cn(
-          "dark:bg-slate-700/10  bg-white/30  backdrop-grayscale  text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
+          " text-sidebar-foreground flex h-full w-(--sidebar-width) flex-col",
           className
         )}
         {...props}>
@@ -189,7 +189,7 @@ function Sidebar({
           data-sidebar="sidebar"
           data-slot="sidebar"
           data-mobile="true"
-          className="dark:bg-slate-700/10  bg-white/30 backdrop-blur-sm backdrop-saturate-200  dark:backdrop-grayscale  text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
+          className="dark:bg-slate-700/10  bg-white/30 backdrop-blur-sm backdrop-brightness-200 text-sidebar-foreground w-(--sidebar-width) p-0 [&>button]:hidden"
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
