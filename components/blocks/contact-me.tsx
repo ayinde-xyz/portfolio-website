@@ -83,8 +83,11 @@ const ContactMe = () => {
   return (
     <section
       id="contact-me"
-      className=" snap-start  md:w-2/3 mx-auto flex flex-col mb-10 relative">
-      <BlurEffect1 />
+      className=" snap-start  md:w-2/3 mx-auto flex flex-col mb-10">
+      <div className="absolute inset-0 pointer-events-none">
+        <BlurEffect1 />
+        <BlurEffect2 />
+      </div>
       <h1 className="text-6xl tracking-tighter  bg-clip-text text-transparent text-center mb-7 bg-linear-to-r from-indigo-500 via-purple-500 to-pink-500  sm:text-7xl md:text-8xl lg:text-10xl/none">
         Feel free to hit me up
       </h1>
@@ -155,7 +158,6 @@ const ContactMe = () => {
           </Button>
         </form>
       </Form>
-      <BlurEffect2 />
     </section>
   );
 };

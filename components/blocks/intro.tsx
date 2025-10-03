@@ -35,7 +35,7 @@ const IntroPage = async () => {
   return (
     <section
       id="intro"
-      className="snap-start relative top-20 min-h-screen flex flex-col justify-center w-full">
+      className="snap-start  min-h-screen flex flex-col justify-center w-full">
       <BlurEffect1 />
       <div className="container">
         <div className="flex flex-col items-center space-y-4 text-center">
